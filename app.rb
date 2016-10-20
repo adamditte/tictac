@@ -4,14 +4,14 @@ attr_accessor :board
     @board = Array.new(3) { Array.new(3, " ") }
   end
 
- # def printInstructions
- #    puts "1 | 2 | 3",
- #         "---------",
- #         "4 | 5 | 6",
- #         "---------",
- #         "7 | 8 | 9"
- #    print "\n"
- #  end
+ def printInstructions
+    puts "1 | 2 | 3",
+         "---------",
+         "4 | 5 | 6",
+         "---------",
+         "7 | 8 | 9"
+    print "\n"
+  end
 
  def printBoard()
     (0..2).each do |row|
@@ -32,5 +32,6 @@ end
 
 
 board = Board.new
-puts "\n" * 100
+# puts "\n" * 100
+board.printInstructions
 board.printBoard
