@@ -64,3 +64,4 @@ class Game #naming the class
     Player = Struct.new(:name, :symbol)
 end
 Game.new.play_game
+#small change
