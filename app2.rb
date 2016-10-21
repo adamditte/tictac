@@ -44,7 +44,19 @@ class Game #naming the class
         take_turns until game_over # calls take_turns function until the game is over and then calls game_over function
     end 
 
+    def take_turns
+        @current_turn.odd? ? turn(@player_1) : turn(@player_2) #current_turn starts set to 1. checks to see if odd then calls turn funtion and passes to proper player
+    end
 
+    def turn(player)
+        show_turn(player)
+        input = get_valid_square
+        @grid.update(input, player.symbol)
+            @current_turn += 1 #sets current_turn equal to current_turn plus 1
+        @grid.print_grid
+    end
+
+    
     class Board
 
         attr_reader :board, :empty_square
