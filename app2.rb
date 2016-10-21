@@ -41,8 +41,9 @@ class Game #naming the class
     def begin_game
         puts "#{@player_1.name}, it is your turn."
         @grid.print_grid #begins a new game!
-
+        take_turns until game_over # calls take_turns function until the game is over and then calls game_over function
     end 
+
 
     class Board
 
@@ -64,4 +65,4 @@ class Game #naming the class
     Player = Struct.new(:name, :symbol)
 end
 Game.new.play_game
-#small change
+
