@@ -69,6 +69,10 @@ class Game #naming the class
      input
     end
 
+    def game_over
+        @current_turn > 9
+    end
+
     class Board
 
         attr_reader :board, :empty_square
@@ -83,7 +87,14 @@ class Game #naming the class
             @board.each_slice(3) {|row| puts row.join(' | ')}  #breaks @board into sections of 3 and puts a new line between each section
             puts "\n"
         end
-
+        def update(position, symbol) #this updates the space on the board.
+            if @board[position] == @empty_square
+                @board[position] = symbol
+                return true
+            else
+                return false
+            end
+        end
     end
     
     Player = Struct.new(:name, :symbol)
