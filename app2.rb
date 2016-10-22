@@ -41,7 +41,7 @@ class Game #naming the class
     def begin_game
         puts "#{@player_1.name}, it is your turn."
         @grid.print_grid #begins a new game!
-        take_turns until game_over # calls take_turns function until the game is over and then calls game_over function
+        take_turns # calls take_turns function until the game is over and then calls game_over function
     end 
 
     def take_turns
@@ -55,8 +55,20 @@ class Game #naming the class
             @current_turn += 1 #sets current_turn equal to current_turn plus 1
         @grid.print_grid
     end
-
     
+    def show_turn(player)
+        puts "#{player.name} ('#{player.symbol}')"
+    end
+
+    def get_valid_sqaure
+        input = nil
+        until (0..8).include?(input)
+            puts "It is time to make your move. The numbers 1-3 correspond to the top row, left to right respectively. Numbers 4-6 are the middle, and 7-9 make up the bottom row."
+            input = gets.chomp.to_i - 1
+        end
+     input
+    end
+
     class Board
 
         attr_reader :board, :empty_square
