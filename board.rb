@@ -10,4 +10,13 @@ class Board
             # @board[position] == @empty_square
             @gameboard[position] = symbol
     end
+
+    def valid_space?(position)
+        if @gameboard[position] == "x" || @gameboard[position] == "o"
+            false
+        else
+            true
+        end
+    end
+
 end
