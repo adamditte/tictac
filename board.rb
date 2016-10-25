@@ -20,20 +20,20 @@ class Board
     end
 
     def valid_input?(position)
-        if position >= 0 && position <= 8
+        if position >= 0 && position <= 8 && position =~ (/\d/)
             true
         else
             false
         end
     end    
 
-    def integer?(position)
-        if position =~ /^[0-9]/
-            true
-        else 
-            false
-        end
+    # def integer?(position)
+    #     if position =~ /^[0-9]/
+    #         true
+    #     else 
+    #         false
+    #     end
 
-    end
+    # end
 
 end
