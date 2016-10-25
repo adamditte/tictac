@@ -34,5 +34,10 @@ class TestBoard < Minitest::Test
         assert_equal(false, board.valid_input?(-1))
         assert_equal(true, board.valid_input?(5))
     end
+
+    def test_input_invalid
+        board = Board.new()
+        assert_equal(false, board.integer?("n"))
+    end
 end
 

@@ -27,5 +27,13 @@ class Board
         end
     end    
 
+    def integer?(position)
+        if position =~ /^[0-9]/
+            true
+        else 
+            false
+        end
+
+    end
 
 end
