@@ -48,9 +48,13 @@ class Game #naming the class
     def turn(player)
         show_turn(player)
         input = get_valid_square
-        @grid.update(input, player.symbol)
+        if @grid.update(input, player.symbol)
             @current_turn += 1 #sets current_turn equal to current_turn plus 1
+            else 
+                error = "SORRY, THAT IS AN INVALID MOVE"
+        end
         @grid.print_grid
+        check_for_win(player) #calls check_for_win function and passes current player
     end
     
     def show_turn(player)
@@ -66,8 +70,27 @@ class Game #naming the class
      input
     end
 
+    def check_for_win(player)
+        @@wins.each.do |w|
+            @winner - player if w.all? { |a| @grid.board[a] == player.symbol }
+    end
+
+
     def game_over
-        @current_turn > 9
+        @current_turn > 9 || @winner
+    end
+
+    def show_game_over
+        puts '---------'
+        puts 'Game Over'
+        puts '---------'
+    end
+    def show_result
+        if @current_turn > 9 && !@winner
+            puts "IT'S A TIE!"
+        else
+            puts "CONGRATS, #{@winner.name}.  YOU WON!"
+        end
     end
 
     class Board
@@ -96,5 +119,7 @@ class Game #naming the class
     
     Player = Struct.new(:name, :symbol)
 end
+
+my_game = Game.new
 Game.new.play_game
 
