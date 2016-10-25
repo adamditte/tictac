@@ -1,13 +1,13 @@
 class Board
 
-        attr_accessor :board
+        attr_accessor :gameboard
         def initialize
             # @empty_square = ""
-            @board = Array.new(9, "")
+            @gameboard = Array.new(9, "")
         end
     
     def update(position, symbol) #this updates the space on the board.
             # @board[position] == @empty_square
-            @board[position] = symbol
+            @gameboard[position] = symbol
     end
 end
