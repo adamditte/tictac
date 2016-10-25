@@ -48,5 +48,40 @@ class TestBoard < Minitest::Test
         assert_equal(false, board.full_board)
     end
 
+    def test_for_x_winner
+        board = Board.new()
+        board.gameboard = ["x","x","x","","","","","",""]
+        symbol = "x"
+        assert_equal(true, board.winner?(symbol))
+    end
+
+    
+    def test_for_o_winner
+        board = Board.new()
+        board.gameboard = ["o","o","o","","","","","",""]
+        symbol = "o"
+        assert_equal(true, board.winner?(symbol))
+    end
+
+    def test_for_diagonal_winner_o
+        board = Board.new()
+        board.gameboard = ["o","","","","o","","","","o"]
+        symbol = "o"
+        assert_equal(true, board.winner?(symbol))
+    end
+
+    def test_x_winner_left_row
+        board = Board.new()
+        board.gameboard = ["x","","","x","","","x","",""]
+        symbol = "x"
+        assert_equal(true, board.winner?(symbol))
+    end
+
+    def test_for_false_win
+        board = Board.new()
+        board.gameboard = ["x","","","","","","x","",""]
+        symbol = "x"
+        assert_equal(false, board.winner?(symbol))
+    end
 end
 
