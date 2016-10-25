@@ -19,4 +19,13 @@ class Board
         end
     end
 
+    def valid_input?(position)
+        if position >= 0 && position <= 8
+            true
+        else
+            false
+        end
+    end    
+
+
 end
