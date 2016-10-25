@@ -7,4 +7,11 @@ class TestBoard < Minitest::Test
         board = Board.new()
         assert_equal(["","","","","","","","",""], board.board)
     end
+
+    def test_for_update
+        board = Board.new()
+       assert_equal(["x","","","","","","","",""], board.update(0, "x"))
+    end
+
 end
+
