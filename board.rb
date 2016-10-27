@@ -20,7 +20,7 @@ class Board
     end
 
     def valid_input?(position)
-        if position.to_i >= 0 && position.to_i <= 8 && position =~ (/\d/)
+        if position.to_i >= 0 && position.to_i <= 9 && position =~ (/\d/)
             true
         else
             false
@@ -28,7 +28,7 @@ class Board
     end    
 
     def full_board
-        gameboard.count("") == 0       
+        board.count("") == 0       
     end
 
     def winner?(symbol)

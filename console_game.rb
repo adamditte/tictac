@@ -13,10 +13,10 @@ def initialize(player_1, player_2)
 end
 
 def change_player
-    if @current_player == player_2
-        @current_player = player_1
-else
+    if @current_player == player_1
         @current_player = player_2
+else
+        @current_player = player_1
     end
 
 end
@@ -35,11 +35,11 @@ def print_board
     puts ""
     puts "Game Board:"
     puts ""
-    puts " #{board.gameboard[1]} | #{board.gameboard[2]} | #{board.gameboard[3]} "
+    puts " #{board.gameboard[0]} | #{board.gameboard[1]} | #{board.gameboard[2]} "
     puts "---+---+---"
-    puts " #{board.gameboard[4]} | #{board.gameboard[5]} | #{board.gameboard[6]} "
+    puts " #{board.gameboard[3]} | #{board.gameboard[4]} | #{board.gameboard[5]} "
     puts "---+---+---"
-    puts " #{board.gameboard[7]} | #{board.gameboard[8]} | #{board.gameboard[9]} "
+    puts " #{board.gameboard[6]} | #{board.gameboard[7]} | #{board.gameboard[8]} "
     puts ""
 
     
@@ -50,15 +50,19 @@ def get_move
 end
 
 def make_move(move)
-    board.update(move, current_player.symbol)
+    board.update(move, current_player.marker)
     
 end
 def game_over?
-    if board.full_board?
-        puts "Tie game....kinda like kissing your sister."
-    elsif
-        board.winner?(current_player.symbol)
-        puts "#(current_player) wins! Here's a cookie."
+    board.winner?(current_player.marker) || board.full_board?
+end
+
+def end_message
+    if board.winner?(current_player.marker)
+        puts "#{current_player.marker} wins. Big deal. Think you're special or something?"
+    else
+        board.full_board?
+        puts "You tied. Kinda like kissing your sister."
     end
 end
 end

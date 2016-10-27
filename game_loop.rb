@@ -2,7 +2,7 @@ require_relative "console_game.rb"
 
 game = Game.new(Human.new("x"), Human.new("o"))
 
-until board.game_over?
+until game.game_over?
 
     game.change_player
 
@@ -16,3 +16,4 @@ until board.game_over?
 
 end
 
+    game.end_message
