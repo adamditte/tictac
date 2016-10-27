@@ -42,11 +42,7 @@ def print_board
     puts " #{board.gameboard[7]} | #{board.gameboard[8]} | #{board.gameboard[9]} "
     puts ""
 
-    if current_player == player_1
-        player = player_2
-    else
-        player = player_1
-    end
+    
 end
 
 def get_move
@@ -55,5 +51,14 @@ end
 
 def make_move(move)
     board.update(move, current_player.marker)
+    
+end
+def game_over?
+    if board.full_board?
+        puts "Tie game....kinda like kissing your sister."
+    elsif
+        board.winner?(current_player.marker)
+        puts "#(current_player) wins! Here's a cookie."
+    end
 end
 end

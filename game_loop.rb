@@ -2,10 +2,15 @@ require_relative "console_game.rb"
 
 game = Game.new(Human.new("x"), Human.new("o"))
 
-game.print_board
+until game.game_over?
 
-move = game.get_move
+    game.print_board
 
-game.make_move(move)
+    move = game.get_move
 
-game.print_board
+    game.make_move(move)
+
+    game.print_board
+
+end
+
