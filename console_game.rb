@@ -9,14 +9,14 @@ def initialize(player_1, player_2)
     @board = Board.new
     @player_1 = player_1
     @player_2 = player_2
-    @current_player = player_1
+    @current_player = player_2
 end
 
 def change_player
-    if @current_player == player_1
-        @current_player = player_2
-else
+    if @current_player == player_2
         @current_player = player_1
+else
+        @current_player = player_2
     end
 
 end
@@ -50,14 +50,14 @@ def get_move
 end
 
 def make_move(move)
-    board.update(move, current_player.marker)
+    board.update(move, current_player.symbol)
     
 end
 def game_over?
     if board.full_board?
         puts "Tie game....kinda like kissing your sister."
     elsif
-        board.winner?(current_player.marker)
+        board.winner?(current_player.symbol)
         puts "#(current_player) wins! Here's a cookie."
     end
 end
