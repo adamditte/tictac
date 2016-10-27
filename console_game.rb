@@ -12,6 +12,15 @@ def initialize(player_1, player_2)
     @current_player = player_1
 end
 
+def change_player
+    if @current_player == player_1
+        @current_player = player_2
+else
+        @current_player = player_1
+    end
+
+end
+
 def print_board
     puts ""
     puts "Let's get started!'"
@@ -32,6 +41,12 @@ def print_board
     puts "---+---+---"
     puts " #{board.gameboard[7]} | #{board.gameboard[8]} | #{board.gameboard[9]} "
     puts ""
+
+    if current_player == player_1
+        player = player_2
+    else
+        player = player_1
+    end
 end
 
 def get_move
