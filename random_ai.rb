@@ -14,6 +14,6 @@ class RandomAi
 			get_move(board)
 		else
 			random_move
-		end
+	    end
     end
 end

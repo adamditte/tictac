@@ -2,7 +2,7 @@ require "minitest/autorun"
 
 require_relative "sequential_ai.rb"
 
-class TestRandomAi < Minitest::Test
+class TestSequentialAi < Minitest::Test
 	
     def test_random_ai_player
         player = SequentialAi.new("x")
