@@ -54,7 +54,7 @@ def make_move(move)
     
 end
 def game_over?
-    board.winner?(current_player.marker) || board.full_board?
+    board.winner?(current_player.marker)
 end
 
 def end_message

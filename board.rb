@@ -8,7 +8,7 @@ class Board
     
     def update(position, symbol) #this updates the space on the board.
             # @board[position] == @empty_square
-            @gameboard[position.to_i] = symbol
+            @gameboard[position.to_i-1] = symbol
     end
 
     def valid_space?(position)
@@ -27,7 +27,7 @@ class Board
         end
     end    
 
-    def full_board
+    def full_board?
         board.count("") == 0       
     end
 
