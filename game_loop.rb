@@ -1,9 +1,7 @@
 require_relative "console_game.rb"
 
 
-
-player_2 = select_player_2
-game = Game.new(Human.new("x"), player_2.new("o"))
+game = Game.new
 
 until game.game_over?
 
