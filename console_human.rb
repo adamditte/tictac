@@ -8,6 +8,7 @@ class Human
     def get_move(board)
         puts "Yeah you, make a move."
         move = gets.chomp.to_i
+        move = move - 1
             if board[move] == ""
                 move
             else

@@ -8,11 +8,11 @@ class Board
     
     def update(position, symbol) #this updates the space on the board.
             # @board[position] == @empty_square
-            @gameboard[position.to_i-1] = symbol
+            @gameboard[position.to_i] = symbol
     end
 
     def valid_space?(position)
-        if @gameboard[position.to_i] == "x" || @gameboard[position.to_i] == "o"
+        if @gameboard[position.to_i] != ""
             false
         else
             true
@@ -20,7 +20,7 @@ class Board
     end
 
     def valid_input?(position)
-        if position.to_i >= 0 && position.to_i <= 9 && position =~ (/\d/)
+        if position.to_i >= 1 && position.to_i <= 9 && position =~ (/\d/)
             true
         else
             false
@@ -28,7 +28,7 @@ class Board
     end    
 
     def full_board?
-        board.count("") == 0       
+        gameboard.count("") == 0       
     end
 
     def winner?(symbol)
