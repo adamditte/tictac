@@ -11,6 +11,22 @@ def initialize(player_1, player_2)
     @player_2 = player_2
     @current_player = player_2
 end
+def select_player_2
+    puts """
+
+        What level of play would you like?
+
+        Press   1 - Human
+                2 - Random AI
+                3 - Sequential AI
+
+            Then ENTER!
+            """
+            who = {1 => Human, 2 => RandomAI, 3 => SequentialAI}
+            choice = gets.chomp.to_i
+            player = who[choice]
+end
+
 
 def change_player
     if @current_player == player_1
