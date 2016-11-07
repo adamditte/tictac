@@ -52,18 +52,18 @@ def print_board
     puts ""
     puts "Game Board:"
     puts ""
-    puts " #{board.gameboard[0]} | #{board.gameboard[1]} | #{board.gameboard[2]} "
+    puts " #{board.board[0]} | #{board.board[1]} | #{board.board[2]} "
     puts "---+---+---"
-    puts " #{board.gameboard[3]} | #{board.gameboard[4]} | #{board.gameboard[5]} "
+    puts " #{board.board[3]} | #{board.board[4]} | #{board.board[5]} "
     puts "---+---+---"
-    puts " #{board.gameboard[6]} | #{board.gameboard[7]} | #{board.gameboard[8]} "
+    puts " #{board.board[6]} | #{board.board[7]} | #{board.board[8]} "
     puts ""
 
     
 end
 
 def get_move
-    current_player.get_move(board.gameboard)
+    current_player.get_move(board.board)
 end
 
 def make_move(move)
