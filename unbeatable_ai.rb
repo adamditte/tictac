@@ -29,7 +29,7 @@ class UnbeatableAi
         move
 
     end
-end
+    
 
     def win_combinations(board)
 
@@ -43,9 +43,10 @@ end
              [board[0], board[4], board[8]],
              [board[2], board[4], board[6]]
              ]
-        def win_positions(board)
-            win_positions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
-        end
+    end
+    def win_positions       
+        win_positions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+    end
 
     def potential_win_block(board, current_marker)
 
@@ -60,7 +61,8 @@ end
         open_spot
     end
 
-    end
+end
+
 
 # winning = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]] 
 #unbeatable ai
