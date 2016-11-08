@@ -1,7 +1,7 @@
 class UnbeatableAi
 
     attr_accessor :marker
-
+    
     def initialize(marker)
          @marker = marker
     end
@@ -11,6 +11,7 @@ class UnbeatableAi
     end
 
     def get_move(board)
+
         comp_marker = marker
 
         if comp_marker == "o"
@@ -18,7 +19,7 @@ class UnbeatableAi
         else
             player_marker = "o"
         end
-        
+
         if potential_win_block(board, comp_marker) <= 8
             move = potential_win_block(board, comp_marker)
         elsif potential_win_block(board, player_marker) <= 8
@@ -27,12 +28,9 @@ class UnbeatableAi
             move = board.index("")
         end
         move
-
     end
-    
 
     def win_combinations(board)
-
          a = [
              [board[0], board[1], board[2]],
              [board[3], board[4], board[5]],
@@ -62,6 +60,10 @@ class UnbeatableAi
     end
 
 end
+
+
+
+
 
 
 # winning = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]] 
