@@ -19,6 +19,10 @@ class TestUnbeatableAi < Minitest::Test
         assert_equal(5, player.get_move(["","","","x","x","","","",""]))
     end
 
+    def test_for_error_on_x_fourth_turn
+        player = UnbeatableAi.new("o")
+        assert_equal(5, player.get_move(["o","","x","x","x","o","o","","x"]))
+    end   
 
 
 end
