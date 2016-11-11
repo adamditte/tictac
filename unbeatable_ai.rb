@@ -166,10 +166,25 @@ class UnbeatableAi
     end
 
     def check_for_empty_corner(board)
+        @open_spot = 10
         corners = [0, 2, 6, 8]
         corners.each do |corner|
             if board[corner] == ""
                 @open_spot = corner
+                break
+            else
+                check_for_empty_side(board)
+            end
+        end
+    open_spot
+    end
+
+     def check_for_empty_side(board)
+        @open_spot = 10
+        open_side = [1, 2, 5, 7]
+        open_side.each do |open_side|
+            if board[open_side] == ""
+                @open_spot = open_side
                 break
             end
         end
