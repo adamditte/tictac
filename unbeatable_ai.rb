@@ -179,7 +179,7 @@ class UnbeatableAi
     open_spot
     end
 
-     def check_for_empty_side(board)
+    def check_for_empty_side(board)
         @open_spot = 10
         open_side = [1, 2, 5, 7]
         open_side.each do |open_side|
