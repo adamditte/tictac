@@ -1,33 +1,32 @@
- class Board
-attr_accessor :board
-  def initialize
-    @board = Array.new(3) { Array.new(3, " ") }
-  end
+require "sinatra"
+require_relative "random_ai.rb"
+require_relative "sequential_ai.rb"
+require_relative "unbeatable.rb"
+require_relative "board.rb"
 
- def printInstructions
-    puts "1 | 2 | 3",
-         "---------",
-         "4 | 5 | 6",
-         "---------",
-         "7 | 8 | 9"
-    print "\n"
-  end
+enable :sessions
 
- def printBoard()
-    (0..2).each do |row|
-      print "        "
-      (0..2).each do |col|
-        print @board[row][col]
-        print " | " unless col == 2
-      end
-      print "\n"
-      print "       -----------\n" unless row == 2
-    end
-    print "\n"
-  end
+ai = ""
 
+board = Board.new()
+
+get '/' do
+  erb :home
+end
+
+post '/home' do
+  name = params[:input_name]
 end
 
 
+get '/rules' do
+  erb :rules
+end
 
+get '/history' do
+  erb :history
+end
 
+get '/play_game' do
+  erb :play_game, :locals => {:board => session[:board]}
+end
