@@ -82,6 +82,10 @@ post '/player_2_name' do
 end
 
 get '/play_game' do
+    session[:player_1] = Human.new("X")
+    session[:current_player] = session[:player_1]
+	session[:current_player_name] = session[:player_1_name]
     erb :play_game, :locals => {:board => session[:board].board, :player_1_name => session[:player_1_name], :player_2_name => session[:player_2_name]}
     #the above saves your board and lets you pull it everytime you call it?  Pushes your board into the erb.  This is why mob helps i would have spent hours on that
 end
+
