@@ -68,7 +68,7 @@ end
 
 # post '/opponent_type' do
 # 	session[:player_2_name] = params[:player_2]
-
+n
 #     redirect '/get_move'
 # end
 

@@ -28,6 +28,8 @@ class UnbeatableAi
             move = block_opponents_fork(board, comp_marker)
         elsif check_for_center(board)
             move = open_spot
+        elsif check_for_empty_side(board)
+            move = open spot
         else check_for_empty_corner(board)
             move = open_spot
         end
@@ -46,6 +48,7 @@ class UnbeatableAi
             [board[2],board[4],board[6]]
         ]
     end
+
 
     def win_positions
         win_positions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
@@ -181,7 +184,7 @@ class UnbeatableAi
 
     def check_for_empty_side(board)
         @open_spot = 10
-        open_side = [1, 2, 5, 7]
+        open_side = [1, 3, 5, 7]
         open_side.each do |open_side|
             if board[open_side] == ""
                 @open_spot = open_side
