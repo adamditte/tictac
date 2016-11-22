@@ -28,8 +28,10 @@ class UnbeatableAi
             move = block_opponents_fork(board, comp_marker)
         elsif check_for_center(board)
             move = open_spot
-        elsif check_for_empty_side(board)
-            move = open_spot
+        elsif opponent_corner(board)
+            move = open_spot       
+        # elsif check_for_empty_side(board)
+        #     move = open_spot
         else check_for_empty_corner(board)
             move = open_spot
         end
@@ -73,24 +75,22 @@ class UnbeatableAi
 		@open_spot = 10
         comp_marker = marker
 		
-		if comp_marker == "O"
-			player_marker = "X"
+		if comp_marker == "o"
+			player_marker = "x"
 		else
-			player_marker = "O"
+			player_marker = "o"
 		end
 
-		if board[0] == player_marker
+		if board[0] == player_marker && board[8] == ""
 			@open_spot = 8
-            move = 8
-		elsif board[2] == player_marker
+		elsif board[2] == player_marker && board[6] == ""
 			@open_spot = 6
-            move = 6
-		elsif board[6] == player_marker
+		elsif board[6] == player_marker && board[2] == ""
 			@open_spot = 2
-            move = 2
-		elsif board[8] == player_marker
+		elsif board[8] == player_marker && board[0] == ""
 			@open_spot = 0
-            move = 0
+        else
+            check_for_empty_side(board)
 		end
         open_spot
     end
@@ -131,12 +131,14 @@ class UnbeatableAi
 		@open_spot = 10
         comp_marker = marker
 
-		if comp_marker == "O"
-			player_marker = "X"
+		if comp_marker == "o"
+			player_marker = "x"
 		else
-			player_marker = "O"
+			player_marker = "o"
 		end
-
+        if board[0] == player_marker && board[8] == player_marker
+            @open_spot = 7
+        end
 		fork_line = []
 		fork_spot = []
 		i = []
@@ -206,9 +208,9 @@ end
 # Block: If the opponent has two in a row, the player must play the third themselves to block the opponent.
 # Fork: Create an opportunity where the player has two threats to win (two non-blocked lines of 2).
 # Blocking an opponent's fork:
-# Option 1: The player should create two in a row to force the opponent into defending, as long as it doesn't result in them creating a fork. For example, if "X" has a corner, "O" has the center, and "X" has the opposite corner as well, "O" must not play a corner in order to win. (Playing a corner in this scenario creates a fork for "X" to win.)
+# Option 1: The player should create two in a row to force the opponent into defending, as long as it doesn't result in them creating a fork. For example, if "x" has a corner, "o" has the center, and "x" has the opposite corner as well, "o" must not play a corner in order to win. (Playing a corner in this scenario creates a fork for "x" to win.)
 # Option 2: If there is a configuration where the opponent can fork, the player should block that fork.
-# Center: A player marks the center. (If it is the first move of the game, playing on a corner gives "O" more opportunities to make a mistake and may therefore be the better choice; however, it makes no difference between perfect players.)
+# Center: A player marks the center. (If it is the first move of the game, playing on a corner gives "o" more opportunities to make a mistake and may therefore be the better choice; however, it makes no difference between perfect players.)
 # Opposite corner: If the opponent is in the corner, the player plays the opposite corner.
 # Empty corner: The player plays in a corner square.
 # Empty side: The player plays in a middle square on any of the 4 sides.

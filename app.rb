@@ -42,24 +42,24 @@ post '/opponent' do
 	player_2 = params[:player_2]
 
 	if player_2 == "human"
-		session[:player_2] = Human.new("O")
+		session[:player_2] = Human.new("o")
 
 		erb :player_2_name, :locals => { :board => session[:board].board }
 
 	elsif player_2 == "sequential_ai"
-		session[:player_2] = SequentialAi.new("O")
+		session[:player_2] = SequentialAi.new("o")
 		session[:player_2_name] = "CPU"
 
 		redirect '/get_move'
 
 	elsif player_2 == "random_ai"
-		session[:player_2] = RandomAi.new("O")
+		session[:player_2] = RandomAi.new("o")
 		session[:player_2_name] = "CPU"
 
 		redirect '/get_move'
 
 	else player_2 == "unbeatable_ai"
-		session[:player_2] = UnbeatableAi.new("O")
+		session[:player_2] = UnbeatableAi.new("o")
 		session[:player_2_name] = "CPU"
 
 		redirect '/get_move'
@@ -68,7 +68,6 @@ end
 
 # post '/opponent_type' do
 # 	session[:player_2_name] = params[:player_2]
-n
 #     redirect '/get_move'
 # end
 
