@@ -135,10 +135,8 @@ class UnbeatableAi
 			player_marker = "x"
 		else
 			player_marker = "o"
-		end
-        if board[0] == player_marker && board[8] == player_marker
-            @open_spot = 7
-        end
+                end
+
 		fork_line = []
 		fork_spot = []
 		i = []
