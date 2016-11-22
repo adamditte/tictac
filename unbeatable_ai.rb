@@ -29,7 +29,7 @@ class UnbeatableAi
         elsif check_for_center(board)
             move = open_spot
         elsif check_for_empty_side(board)
-            move = open spot
+            move = open_spot
         else check_for_empty_corner(board)
             move = open_spot
         end
