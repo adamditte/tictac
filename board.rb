@@ -6,6 +6,18 @@ class Board
             @board = Array.new(9, "")
         end
     
+    def board_positions()
+		new_board = []
+		board.each_with_index do |value, index|
+			if value == "x" || value == "o"
+				new_board.push(value)
+			else
+				new_board.push(index + 1)
+			end
+		end
+		new_board
+    end
+
     def update(position, symbol) #this updates the space on the board.
             # @board[position] == @empty_square
             @board[position.to_i] = symbol
